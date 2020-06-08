@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1591615156 source:c:\kab\datorteknik\cprogramming\char_gen\main.cpp
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+	"dice_roll.h"
+	"class_chooser.h"
+	"race_handler.h"
+	"generic_class_feats.h"
+
+1580662320 source:c:\kab\datorteknik\cprogramming\char_gen\class_chooser.cpp
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+
+1591606953 c:\kab\datorteknik\cprogramming\char_gen\dice_roll.h
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+
+1591615037 c:\kab\datorteknik\cprogramming\char_gen\class_chooser.h
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+
+1591615002 c:\kab\datorteknik\cprogramming\char_gen\race_handler.h
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+
+1581937245 c:\kab\datorteknik\cprogramming\char_gen\generic_class_feats.h
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<fstream>
+	<stdio.h>
+	<io.h>
+	<string>
+

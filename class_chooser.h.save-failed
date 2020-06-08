@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <stdio.h>
+#include <io.h>
+#include <string>
+
+
+#include "main.cpp"
+
+
+
+
+void class_setup(std::string *Class, std::string *classes[], int *Level) {
+    int roll = dice(12);
+
+    switch (roll) {
+    case 1:
+        *Class = "Barbarian";
+        break;
+    case 2:
+        *Class = "Bard";
+        break;
+    case 3:
+        *Class = "Cleric";
+        break;
+    case 4:
+        *Class = "Druid";
+        break;
+    case 5:
+        *Class = "Fighter";
+        break;
+    case 6:
+        *Class = "Monk";
+        break;
+    case 7:
+        *Class = "Paladin";
+        break;
+    case 8:
+        *Class = "Ranger";
+        break;
+    case 9:
+        *Class = "Sorcerer";
+        break;
+    case 10:
+        *Class = "Rogue";
+        break;
+    case 11:
+        *Class = "Warlock";
+        break;
+    case 12:
+        *Class = "Wizard";
+        break;
+
+    }
+
+
+}
+
+
+
+

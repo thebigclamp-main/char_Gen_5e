@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <stdio.h>
+#include <io.h>
+#include <string>
+
+#include "class_chooser.h"
+#include "race_handler.h"
+
+volatile int dice(int dType) {
+    int value = rand() % dType + 1;
+    return value;
+}
+
+
+
+
+void setup(std::string *Name, int *level) {
+    std::cout << "\n\t\t Please enter your name:";
+    std::cin >> *Name;
+    std::cout << "\n\t\t Please enter level:";
+    std::cin >> *level;
+    std::cout << '\n';
+}
+
+int stat () {
+    volatile int dices[4];
+
+    volatile int pointer = 0;
+
+    for (int i = 0; i < 4; i++) {
+        dices[i] = dices(6);
+    }
+
+    pointer = 10;
+    int place = 0;
+
+    for (int i = 0; i < 4; i++) {
+        if (pointer > dices[i]) {
+            pointer = dices[i];
+            place = i;
+        }
+    }
+
+    dices[place] = 0;
+
+    int total = 0;
+
+    for (int i = 0; i < 4; i++) {
+        total = total + dices[i];
+    }
+
+
+    return total;
+}
+
+
+
+int main () {
+    srand(time(NULL));
+    std::string name;
+    int level= 1;
+    std::ofstream file;
+
+    setup(&name, &level);
+
+    std::string race = race_gen();
+    /*
+    if (mkdir("../kenku" ) != 0) {
+        std::cout << "did not work!";
+    }
+    //*/
+
+    int statArray[6];
+
+    for (int i = 0; i < 6; i++) {
+        statArray[i] = stat();
+    }
+
+    std::string names[6];
+    names[0] = "Strength: ";
+    names[1] = "Dexterity: ";
+    names[2] = "Constitution: ";
+    names[3] = "Intelligence: ";
+    names[4] = "Wisdom: ";
+    names[5] = "Charisma: ";
+
+    std::string subRace = race_stats(statArray, race);
+
+    file.open (name + " " + subRace + " "  + std::to_string(level) + ".txt");
+
+    file<< "\n\n" << subRace;
+    file.close();
+    return 0;
+}
