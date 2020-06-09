@@ -11,7 +11,7 @@
 #include "race_handler.h"
 #include "generic_class_feats.h"
 
-
+#define CLASSES 12
 
 
 //setup ger input för programmet (namn och level som karaktären ska vara)
@@ -66,7 +66,35 @@ int stat () {
     return total;
 }
 
-void countClasses(std::string *Classes, std::string outPut) {
+void countClasses(std::string Classes[], std::string outPut, int level) {
+    int barbarian = 0;
+    int bard = 0;
+    int cleric = 0;
+    int druid = 0;
+    int fighter = 0;
+    int monk = 0;
+    int paladin = 0;
+    int ranger = 0;
+    int rogue = 0;
+    int sorceror = 0;
+    int warlock = 0;
+    int wizard = 0;
+
+    int classes[CLASSES] = {};
+    std::string cClass = {};
+    int temp = 0;
+    int raknare = 0;
+
+    classes[0] = 1;
+    cClass = Classes[0];
+
+
+    while (Classes[raknare+1] != "") {
+        if (cClass != Classes[raknare]) {
+
+        }
+    }
+
 
 }
 
@@ -124,12 +152,41 @@ int main () {
 
     std::string classes[level] = {};
 
-   class_setup(classes, level);
+    class_setup(classes, level);
 
 
+    //den mest hacky lösningen antagligen i hela koden. skrev den kl 5 på morgonen
+    //klaga inte
 
-    for (int i = 0; i < level; i++) {
-        file << classes[i] << "\n";
+    //en array för klasserna där den antar att allting är korrekt sorterat
+    //increment för att byta klass i listan
+    //i för att kunna nes öka värdet på den platsen
+    int classLevels[level] = {};
+    int increment = 0;
+    int i = 0;
+    //ansätter att den första klassen är den första för vidare jämförelser
+    std::string currentClass = classes[0];
+    //medens våran räknare är mindre än högsta leveln
+    while (increment != level) {
+            //debug kåd
+            //std::cout << currentClass << " [current/next]" << Classes[increment] <<'\n';
+
+        //kollar om den nuvarande klassen är lika då om den inte skilljer sig
+        //kan vi veta att det är en extra level i den klassen
+        if (classes[increment] != currentClass) {
+            //skriver till filen när de skilljer sig då vi har den totala
+            //level för den föregående klassen
+            file << classLevels[i] << ' ' << currentClass << '\n';
+            //inkremiterar räknarna för att gå till nästa klass samt i
+            //både level räknaren och vilken som är den nuvarande
+            currentClass = classes[increment];
+            classLevels[i++];
+        }
+        //annars gå till nästa plats i klass arrayn och öka nuvarande leveln
+        increment = increment +1;
+        classLevels[i] = classLevels[i] +1;
+
+
     }
 
     file.close();

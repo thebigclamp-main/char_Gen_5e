@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <io.h>
 #include <string>
+#include <algorithm>
+
+#define CLASSES 12
 
 std::string classes() {
     //rulla en tärning på vilken klass du kommer få (input för switchen)
@@ -61,14 +64,15 @@ std::string classes() {
 void class_setup(std::string *Classes, int Level) {
     //array för att lagra alla klassval
     //std::string Classes[Level] = {};
+    int sizeClasses = sizeof(Classes)/sizeof(Classes[0]);
 
 
     for (int i = 0; i < Level; i++) {
         Classes[i] = classes();
     }
 
-
-
+    //sorterar arrayn
+    sort(Classes, Classes+Level);
 }
 
 
