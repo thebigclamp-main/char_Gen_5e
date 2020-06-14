@@ -7,3 +7,6 @@ a c++ character generator for dnd 5e
 # checking whether it can even multiclass into any given class before picking it
 # choosing feats (picked from a list given in .txt doc)
 # making/using subfolders for each race once the character is finished
+
+
+free to use and or modify as long as im credited with the original code
