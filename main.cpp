@@ -152,7 +152,7 @@ int main () {
 
     std::string classes[level] = {};
 
-    class_setup(classes, level);
+    class_setup(classes, level, statArray);
 
 
     //den mest hacky lösningen antagligen i hela koden. skrev den kl 5 på morgonen
@@ -176,6 +176,7 @@ int main () {
         if (classes[increment] != currentClass) {
             //skriver till filen när de skilljer sig då vi har den totala
             //level för den föregående klassen
+            std::cout << classLevels[i] << ' ' << currentClass << '\n';
             file << classLevels[i] << ' ' << currentClass << '\n';
             //inkremiterar räknarna för att gå till nästa klass samt i
             //både level räknaren och vilken som är den nuvarande
